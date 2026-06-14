@@ -4,49 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gardasee Countdown</title>
+<title>Urlaub 2026</title>
 
 <style>
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background-image: url("https://images.unsplash.com/photo-1590579491624-f98f36d4c763");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+html, body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.overlay {
-    background: rgba(0,0,0,0.35);
-    padding: 50px;
-    border-radius: 30px;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(4px);
+body{
+    background-image:url("https://images.unsplash.com/photo-1590579491624-f98f36d4c763");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-h1 {
-    font-size: 4vw;
-    margin-bottom: 20px;
+.overlay{
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(8px);
+    border-radius:30px;
+    padding:60px 80px;
+    text-align:center;
+    color:white;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
 }
 
-#countdown {
-    font-size: 10vw;
-    font-weight: bold;
-    line-height: 1;
+.title{
+    font-size:4vw;
+    font-weight:300;
+    letter-spacing:4px;
+    text-transform:uppercase;
 }
 
-.subtitle {
-    font-size: 2.5vw;
-    margin-top: 20px;
+.days{
+    font-size:12vw;
+    font-weight:700;
+    line-height:1;
+    margin-top:20px;
+}
+
+.label{
+    font-size:3vw;
+    margin-top:10px;
+}
+
+.subtitle{
+    font-size:2vw;
+    margin-top:30px;
+    opacity:0.95;
 }
 </style>
 </head>
@@ -54,26 +69,39 @@ h1 {
 <body>
 
 <div class="overlay">
-    <h1>Noch bis zum Gardasee</h1>
-    <div id="countdown"></div>
-    <div class="subtitle">Urlaub wir kommen! 🇮🇹☀️</div>
+    <div class="title">Urlaub 2026</div>
+
+    <div class="days" id="days">0</div>
+
+    <div class="label">Tage</div>
+
+    <div class="subtitle">
+        bis zum Gardasee 🇮🇹 ☀️
+    </div>
 </div>
 
 <script>
-const targetDate = new Date("2026-07-25T00:00:00");
 
-function updateCountdown() {
+const vacationDate = new Date("2026-07-27T00:00:00");
+
+function updateCountdown(){
+
     const now = new Date();
-    const diff = targetDate - now;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const diff = vacationDate - now;
 
-    document.getElementById("countdown").innerHTML =
-        days + "<br><span style='font-size:4vw'>Tage</span>";
+    const days = Math.ceil(
+        diff / (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("days").innerText =
+        Math.max(days,0);
 }
 
 updateCountdown();
-setInterval(updateCountdown, 60000);
+
+setInterval(updateCountdown,60000);
+
 </script>
 
 </body>
