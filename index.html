@@ -7,6 +7,7 @@
 <title>Urlaub 2026</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -21,63 +22,95 @@ html, body{
 }
 
 body{
-    background-image:url("https://images.unsplash.com/photo-1590579491624-f98f36d4c763");
+    background-image:url("https://images.unsplash.com/photo-1666112402453-9f5f2c8d4f6?auto=format&fit=crop&w=1920&q=80");
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
+
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
 .overlay{
-    background:rgba(0,0,0,0.35);
-    backdrop-filter:blur(8px);
-    border-radius:30px;
-    padding:60px 80px;
+
+    background:rgba(0,0,0,0.28);
+    backdrop-filter:blur(6px);
+
+    padding:70px 100px;
+
+    border-radius:35px;
+
     text-align:center;
+
     color:white;
-    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+
+    box-shadow:0 15px 50px rgba(0,0,0,0.35);
 }
 
 .title{
+
     font-size:4vw;
-    font-weight:300;
+
     letter-spacing:4px;
+
     text-transform:uppercase;
+
+    font-weight:300;
+
+    margin-bottom:20px;
 }
 
 .days{
-    font-size:12vw;
+
+    font-size:16vw;
+
     font-weight:700;
+
     line-height:1;
-    margin-top:20px;
 }
 
 .label{
+
     font-size:3vw;
+
     margin-top:10px;
+
+    letter-spacing:2px;
 }
 
 .subtitle{
-    font-size:2vw;
-    margin-top:30px;
+
+    font-size:2.2vw;
+
+    margin-top:25px;
+
     opacity:0.95;
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="overlay">
-    <div class="title">Urlaub 2026</div>
 
-    <div class="days" id="days">0</div>
+    <div class="title">
+        Urlaub 2026 ☀️
+    </div>
 
-    <div class="label">Tage</div>
+    <div class="days" id="days">
+        0
+    </div>
+
+    <div class="label">
+        Tage
+    </div>
 
     <div class="subtitle">
-        bis zum Gardasee 🇮🇹 ☀️
+        bis zum Gardasee 🇮🇹
     </div>
+
 </div>
 
 <script>
@@ -95,12 +128,12 @@ function updateCountdown(){
     );
 
     document.getElementById("days").innerText =
-        Math.max(days,0);
+        Math.max(days, 0);
 }
 
 updateCountdown();
 
-setInterval(updateCountdown,60000);
+setInterval(updateCountdown, 60000);
 
 </script>
 
